@@ -4,3 +4,4 @@ const head = function(arr) {
 }
 
 module.exports = head;
+

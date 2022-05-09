@@ -1,25 +1,5 @@
-
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected) === true) {
-    console.log(`✔ >ARRAY< Assertion Passed✔: ${actual} === ${expected}`);
-  } else {
-    console.log(`⛔ >ARRAY< Assertion Failed⛔: ${actual} !== ${expected}`);
-  }
-};
-
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {//checks if length of arrays are not equal and returns false if not
-    return false;
-  }
-  for (let item in arr1) {//checks if any item in one array is not equal to the item in the second array at the same index
-    // console.log('arr1:', arr1[item], 'arr2:', arr2[item])
-    if (arr1[item] !== arr2[item]) {
-      // console.log('arr1:', arr1[item], 'arr2:', arr2[item])
-      return false;
-    }
-  }
-  return true;
-};
+const assertArraysEqual = require('./assertArraysEqual');
+const eqArrays = require('./eqArrays');
 
 //takes an array
 const middle = function(arr) {
@@ -41,12 +21,4 @@ const middle = function(arr) {
   return midArr;
 };
 
-
-//tests
-assertArraysEqual(middle(['a']), []);
-assertArraysEqual(middle([5, 6]), []);
-assertArraysEqual(middle([0, 1, 2, 3, 4, 5, 6]), [3]);
-assertArraysEqual(middle(['a', 'b', 'c']), ['b']);
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
-assertArraysEqual(middle(['a', 'b', 'c', 'd']), ['b', 'c']);
-
+module.exports = middle;
