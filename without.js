@@ -24,11 +24,11 @@ const eqArrays = function(arr1, arr2) {
 // It should return a new array with only those elements from source that are not present in the itemsToRemove array.
 
 //fn(sourceArr, toRemArr)
-//for loop that splices?? each item from toRemArr from sourceArr (or each item NOT in toRemArr)
+//for loop that splices each item in toRemArr from copy of sourceArr then returns copy with only remaining items
 
 const without = function(sourceArr, toRemArr) {
   let withoutArr = [];
-  withoutArr = sourceArr;
+  withoutArr = sourceArr.slice(0);//making copy of sourceArr to work
   for (let item in withoutArr) {//loop through indecies of withoutArr
     for (let i of toRemArr) {//loop through values in toRemArr
       if (withoutArr[item] === i)//if value at index of withoutArr is equal to any value in toRemArr then remove value at said index in withoutArr
@@ -40,11 +40,13 @@ const without = function(sourceArr, toRemArr) {
 
 
 
-console.log(without([1, 2, 3], [1])) // => [2, 3]
-console.log(without(["1", "2", "3"], [1, 2, "3"])) // => ["1", "2"]
-//add more tests
 
-const words = ["hello", "world", "lighthouse"];
-without(words, ["lighthouse"]); // no need to capture return value for this test case
-// Make sure the original array was not altered by the without function
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+//add more tests
+assertArraysEqual((without([1, 2, 3], [1])), [2, 3])
+assertArraysEqual((without(['1', '2', '3', '4', '5'], [1, 2, '4'])), ['1', '2', '3', '5'])
+assertArraysEqual((without(['1', '2', '3'], [1, 2, '3'])), ['1', '2'])
+assertArraysEqual((without([1, 2, 3, 4], [1, 3, '4'])), [2, 4])
+
+const words = ['hello', 'world', 'lighthouse'];
+without(words, ['lighthouse']);
+assertArraysEqual(words, ['hello', 'world', 'lighthouse']);//make sure original array is not desterbed
