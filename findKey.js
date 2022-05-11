@@ -2,6 +2,7 @@ const assertEqual = require('./assertEqual');
 
 const findKey = (obj, callback) => {
   for (let val in obj) {
+    //returns first key that evaluates to true when passed through callback fn
     if (callback(obj[val])) {
       return val;
     }

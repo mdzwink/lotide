@@ -33,8 +33,8 @@ const letterPositions = function(sentence) {
   
   //loop through sentence
   for (let index in sentence) {
-    //if letter exists as key, add new index to the keys array value
     if (sentence[index] !== ' '){
+      //if letter exists as key in new object, add new index to that keys array value
       if(results[sentence[index]]) {
         results[sentence[index]].push(parseInt(index));
       } else {
