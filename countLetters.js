@@ -6,6 +6,28 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected) === true) {
+    console.log(`✔ >ARRAY< Assertion Passed✔: ${actual} === ${expected}`);
+  } else {
+    console.log(`⛔ >ARRAY< Assertion Failed⛔: ${actual} !== ${expected}`);
+  }
+};
+
+const eqArrays = function(arr1, arr2) {
+  if (arr1.length !== arr2.length) {//checks if length of arrays are not equal and returns false if not
+    return false;
+  }
+  for (let item in arr1) {//checks if any item in one array is not equal to the item in the second array at the same index
+    // console.log('arr1:', arr1[item], 'arr2:', arr2[item])
+    if (arr1[item] !== arr2[item]) {
+      // console.log('arr1:', arr1[item], 'arr2:', arr2[item])
+      return false;
+    }
+  }
+  return true;
+};
+
 
 
 
@@ -29,7 +51,5 @@ const countLetters = function(sentence) {
   return letterCount;
 }
 
-//assertEqual doesn't seem to pass even though output is correct and matching??
-assertEqual(countLetters('I will survive!'), {I: 1, w: 1, i: 2, l: 2, s: 1, u: 1, r: 1, v: 2, e: 1, '!': 1})
-console.log(countLetters('I will survive!'))
-console.log({I: 1, w: 1, i: 2, l: 2, s: 1, u: 1, r: 1, v: 2, e: 1, '!': 1})
+assertArraysEqual(countLetters('I will survive!'), {I: 1, w: 1, i: 2, l: 2, s: 1, u: 1, r: 1, v: 2, e: 1, '!': 1})
+assertArraysEqual(countLetters('Hello'), {H: 1, e: 1, l: 2, o: 1})

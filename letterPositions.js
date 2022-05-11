@@ -44,7 +44,7 @@ const letterPositions = function(sentence) {
     }
   }
   //if letter is not key then create key and add index value
-  console.log(results)
+  // console.log(results)
   return results;
 };
 
