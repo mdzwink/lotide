@@ -6,24 +6,24 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Let's work together to implement countOnly. This function should
 
-
-//take in a collection of items and
+//take in an array of items and a object containing the items to count
 const countOnly = function(allItems, itemsToCount) { 
   const results = {}
-  
+  //loop through the array of items
   for (let item of allItems) {
+    //if the arrays are not empty...
     if (itemsToCount[item]) {
       if (results[item]) {
         console.log(item)
+        //then adds
         results[item] += 1;
       } else {
         results[item] = 1;
       }
     }
   } 
-
+  console.log(results)
   return results;
 }
 //It won't count everything.
@@ -47,32 +47,3 @@ assertEqual(result1["Jason"], 1);
 assertEqual(result1["Karima"], undefined);
 assertEqual(result1["Fang"], 2);
 assertEqual(result1["Agouhanna"], undefined);
-
-
-
-  // //store counts in new obj
-  // const counts= {};
-  // //read through array
-  //   //for...of
-  //   //
-  //   // console.log('counts before:', counts)
-
-  // console.log('obj value:', obj)
-  // for (let i of arr) {
-  //     //read through obj 
-  //     //for...in
-  //   for (let j in obj) {
-  //     //compare items in array to items in obj
-  //     if (i === obj.j) {
-  //       if (obj.j = 0) {
-  //         counts.j = 1;
-  //       } else {
-  //         counts.j += 1;
-  //       }
-  //     }
-  //   }
-  // }
-  // console.log('counts after:', counts)
-  //each time item in arr matches item in obj then increment counter for that object value in a new obj
-  //return said object
-  //return counts;
